@@ -1,0 +1,64 @@
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: auto;
+    max-width: 400px; /* Optimal width for mobile devices */
+    font-family: Arial, sans-serif;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between checkbox and label text */
+  }
+
+  input[type="checkbox"] {
+    width: 3%;
+    transform: scale(1.2); /* Makes checkboxes slightly larger for easier interaction */
+  }
+
+  input{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px; /* Larger font size for easier reading */
+    border-radius: 5px; /* Rounded corners for inputs and select */
+    border: 1px solid #ccc; /* Light gray border for inputs */
+  }
+
+  select {
+    width: 105.5%;
+    padding: 10px;
+    font-size: 16px; /* Larger font size for easier reading */
+    border-radius: 5px; /* Rounded corners for inputs and select */
+    border: 1px solid #ccc; /* Light gray border for inputs */
+  }
+
+  button {
+    padding: 15px;
+    font-size: 18px; /* Larger font size for easier tapping */
+    color: white;
+    background-color: #007bff; /* Bootstrap primary color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    form {
+      width: 90%;
+      padding: 10px;
+    }
+
+    input, select, button {
+      font-size: 14px; /* Slightly smaller font size for very small devices */
+    }
+  }
+
