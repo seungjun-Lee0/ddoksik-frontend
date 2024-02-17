@@ -67,6 +67,7 @@ push_kustomization:
     - cd healthcare_deploy
     - git config --global user.name "gitlab runner"
     - git config --global user.email "bangwol08@gmail.com"
+    - git brach -M staging
   script:
     - git add kustomization.yaml
     - git commit -m "change UI ver $CI_COMMIT_SHORT_SHA"
