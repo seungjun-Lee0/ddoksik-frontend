@@ -1,0 +1,73 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+
+build_react:
+  image: node:latest
+  stage: build
+  only:
+    - main
+  before_script:
+    - npm install
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build
+
+build_docker:
+  image: docker:latest
+  stage: build
+  needs: [build_react]
+  only:
+    - main
+  script:
+    - docker build -t gitlab.bangwol08.com:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG .
+  after_script:
+    - docker push gitlab.bangwol08.com:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG
+
+get_kustomization:
+  image: bitnami/git:latest
+  stage: deploy
+  only:
+    - main
+  before_script:
+    - git config --global user.name "gitlab runner"
+    - git config --global user.email "bangwol08@gmail.com"
+  script:
+    - git clone -b main --single-branch https://$GITLAB_ID:$GITLAB_TOKEN@gitlab.bangwol08.com/bangwol08/healthcare_deploy.git
+  artifacts:
+    paths:
+      - healthcare_deploy
+
+set_kustomization:
+  image: gitlab.bangwol08.com:5050/bangwol08/healthcare_front/kustomize:latest
+  stage: deploy
+  needs: [get_kustomization]
+  only:
+    - main
+  before_script:
+    - cd healthcare_deploy
+  script:
+    - kustomize edit set image ui-image=gitlab.bangwol08.com:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG
+  artifacts:
+    paths:
+      - healthcare_deploy
+
+push_kustomization:
+  image: bitnami/git:latest
+  stage: deploy
+  needs: [set_kustomization]
+  only:
+    - main
+  before_script:
+    - cd healthcare_deploy
+    - git config --global user.name "gitlab runner"
+    - git config --global user.email "bangwol08@gmail.com"
+  script:
+    - git add kustomization.yaml
+    - git commit -m "change UI ver $CI_COMMIT_SHORT_SHA"
+    - git push origin staging
