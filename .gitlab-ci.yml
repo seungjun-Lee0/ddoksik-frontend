@@ -24,6 +24,8 @@ build_docker:
   needs: [build_react]
   only:
     - main
+  before_script:
+    - docker login -u $REG_USER -p $REG_PW $REG_ADDRESS
   script:
     - docker build -t gitlab.bangwol08.com:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG .
   after_script:
