@@ -24,7 +24,7 @@ function ViewHealthProfile() {
         };
         fetchProfile();
       });
-  }, []);
+  });
 
   if (!healthProfile) return <div>Loading health profile...</div>;
 

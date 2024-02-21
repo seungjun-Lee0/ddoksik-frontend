@@ -1,6 +1,5 @@
 import React, { createContext } from "react";
 import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
-import { useNavigate } from 'react-router-dom';
 import Pool from './UserPool';
 import UserPool from "./UserPool";
 

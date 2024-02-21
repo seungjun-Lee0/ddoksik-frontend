@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react";
 import { AccountContext } from "../Context/Account";
-import { Modal } from "./shared/ErrorModal";
+// import { Modal } from "./shared/ErrorModal";
 
 export default () => {
     const [password, setPassword] = useState("");

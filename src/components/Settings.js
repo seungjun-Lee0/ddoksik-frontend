@@ -11,7 +11,7 @@ export default () => {
         getSession().then((session) => {
             setName(session.name);
         });
-    }, []);
+    });
 
     return (
         <div className="settings">
