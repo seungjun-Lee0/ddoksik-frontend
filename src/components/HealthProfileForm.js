@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchUserHealthProfile, updateUserHealthProfile } from '../services/HealthProfileService';
-import '../assets/css/healthProfileForm.css';
 
-function HealthProfileForm({ userId, token, hasProfile }) {
+import { AccountContext } from '../Context/Account';
+
+function HealthProfileForm({ hasProfile }) {
   const navigate = useNavigate();
   const [allergyIntoleranceType, setAllergyIntoleranceType] = useState({
     dairy: false,
@@ -18,11 +19,21 @@ function HealthProfileForm({ userId, token, hasProfile }) {
   const [weight, setWeight] = useState('');
   const [targetWeight, setTargetWeight] = useState('');
   const [profileExists, setProfileExists] = useState(hasProfile);
+  const [username, setUsername] = useState('');
+  const [token, setToken] = useState('');
+
+  const { getSession } = useContext(AccountContext);
+
 
   useEffect(() => {
-    if (!profileExists) {
-      fetchUserHealthProfile(userId, token)
-        .then((data) => {
+    // getSession 함수가 성공적으로 완료된 후에만 사용자 프로필을 가져옵니다.
+    const loadProfile = async () => {
+      const session = await getSession();
+      setUsername(session.user.username);
+      setToken(session.idToken.jwtToken);
+      if (!profileExists) {
+        try {
+          const data = await fetchUserHealthProfile(session.user.username, session.idToken.jwtToken);
           if (data && Object.keys(data).length > 0) {
             setProfileExists(true);
             const allergies = data.allergy_intolerance_type.reduce((acc, allergy) => {
@@ -38,12 +49,15 @@ function HealthProfileForm({ userId, token, hasProfile }) {
             setWeight(data.weight);
             setTargetWeight(data.target_weight);
           }
-        })
-        .catch((error) => {
-          console.error('Error fetching user health profile:', error);
-        });
-    }
-  }, [userId, token, profileExists]);
+        } catch (error) {
+          console.log('Error fetching user health profile:', error);
+        }
+      }
+    };
+
+    loadProfile();
+}, [profileExists]); // 의존성 배열에 profileExists 포함
+
 
   const handleAllergyChange = (e) => {
     const { name, checked } = e.target;
@@ -56,6 +70,7 @@ function HealthProfileForm({ userId, token, hasProfile }) {
       .filter(([_, isChecked]) => isChecked)
       .map(([allergy]) => allergy);
     const profileData = {
+      username: username,
       allergy_intolerance_type: selectedAllergies,
       diet_preference: dietPreference,
       birth_date: birthDate,
@@ -67,7 +82,7 @@ function HealthProfileForm({ userId, token, hasProfile }) {
     };
 
     try {
-      await updateUserHealthProfile(userId, token, profileData, profileExists);
+      await updateUserHealthProfile(username, profileData, profileExists, token);
       alert('Health profile updated successfully.');
       navigate('/');
     } catch (error) {
