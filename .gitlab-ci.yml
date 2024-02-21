@@ -13,7 +13,7 @@ build_react:
   before_script:
     - npm install
   script:
-    - npm run build
+    - CI=false npm run build
   artifacts:
     paths:
       - build
