@@ -61,7 +61,7 @@ export default function Home() {
       wrapper.scrollTop = 0;
         //jobBg.style.background = bg;
       });
-  }, []);
+  });
   
     return (
       <div class="wrapper">
