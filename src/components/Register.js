@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CognitoUser } from 'amazon-cognito-identity-js';
-import { AccountContext } from '../Context/Account';
+import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
+import Account, { AccountContext } from '../Context/Account';
 import UserPool from '../Context/UserPool';
 
 function Register() {

@@ -16,6 +16,10 @@ import Settings from './components/Settings';
 import Home from '../src/components/shared/Home';
 
 import './assets/css/modals.css';
+import './assets/css/main.scss';
+import './assets/css/checkbox.scss';
+import './assets/css/profile.css';
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,7 +28,6 @@ function App() {
   useEffect(() => {
     const userInfo = UserPool.getCurrentUser();
     if (userInfo) {
-      console.log(userInfo)
         setUser(userInfo);
         setLoading(false);
     } else {
@@ -44,7 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={user ? <Navigate to="/home" /> : <Navigate to="/login" />} />
         <Route path="/home" element={user ? <Home /> : <Navigate to="/login" />} />
-        <Route path="/login" element={user ? <Home /> : <Login /> } />
+        <Route path="/login" element={user ? <Navigate to="/home" /> : <Login /> } />
         <Route path="/settings" element={user ? <Settings /> : <Navigate to="/login" /> } />
         <Route path="/register" element={<Register />} />
         <Route path="/reset-password" element={<PasswordReset />} />
@@ -52,7 +55,7 @@ function App() {
         <Route path="/health-profile" element={user ? <HealthProfileForm /> : <Navigate to="/login" />} />
         <Route path="*" element={<Navigate to={user ? "/home" : "/login"} />} />
       </Routes>
-      <Footer user={user} />
+      <Footer />
       </Account>
     </Router>
   );

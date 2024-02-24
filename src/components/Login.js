@@ -5,18 +5,24 @@ import { AccountContext } from '../Context/Account';
 import UserPool from '../Context/UserPool';
 import { fetchUserHealthProfile } from '../services/HealthProfileService';
 
-import '../assets/css/login2.css';
+import '../assets/css/login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
   const [confirmationCode, setConfirmationCode] = useState('');
+  const [activeTab, setActiveTab] = useState('login'); // 초기 값으로 'login' 탭을 활성화
+
   const [name, setName] = useState('');
 
   const navigate = useNavigate();
 
   const { authenticate, signUp } = useContext(AccountContext);
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+  };
 
   const onSubmitLogin = async (e) => {
     e.preventDefault();
@@ -70,61 +76,72 @@ function Login() {
   }
 
   return (
-    <div className="wrapper">
-    <div className={`container ${isRightPanelActive ? "right-panel-active" : ""}`}>
-    <div className="sign-up-container">
-      <form onSubmit={onSubmitRegister}>
-        <h1>Create Account</h1>
-       
-        <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Confirmation Code"
-        value={confirmationCode}
-        onChange={(e) => setConfirmationCode(e.target.value)}
-      />
-      <button type="button" onClick={confirmRegistration} className="form_btn">Confirm Registration</button>
-      <button type="submit" className="form_btn">Register</button>
-      </form>
-    </div>
-    <div className="sign-in-container">
-      <form onSubmit={onSubmitLogin}>
-        <h1>Sign In</h1>
-        
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        <button type="submit" className="form_btn">Sign In</button>
-      </form>
-    </div>
-    <div className="overlay-container">
-        <div className="overlay-left">
-          <h2>Welcome Back</h2>
-          <button id="signIn" className="overlay_btn" onClick={() => setIsRightPanelActive(false)}>Sign In</button>
+    <div className="form-wrap">
+      <div className="tabs">
+        <h3 className={`signup-tab ${activeTab === 'signup' ? 'active' : ''}`} onClick={() => handleTabClick('signup')}>
+          <a>Sign Up</a>
+        </h3>
+        <h3 className={`login-tab ${activeTab === 'login' ? 'active' : ''}`} onClick={() => handleTabClick('login')}>
+          <a>Login</a>
+        </h3>
+      </div>
+
+      <div className="tabs-content">
+        <div id="signup-tab-content" className={`tab-content ${activeTab === 'signup' ? 'active' : ''}`}>
+          <form onSubmit={onSubmitRegister}>
+            <h1>Create Account</h1>
+          
+            <input
+            className='input'
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            className='input'
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className='input'
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <input
+            className='input'
+            type="text"
+            placeholder="Confirmation Code"
+            value={confirmationCode}
+            onChange={(e) => setConfirmationCode(e.target.value)}
+          />
+
+          <button type="submit" className="button">Confirm Registration</button>
+          <button type="button" onClick={confirmRegistration} className="button">Register</button>
+          </form>
+          <div className="help-text">
+            <p>By signing up, you agree to our</p>
+            <p><a href="#">Terms of service</a></p>
+          </div>
         </div>
-        <div className="overlay-right">
-          <h2>Hello, Friend</h2>
-          <button id="signUp" className="overlay_btn" onClick={() => setIsRightPanelActive(true)}>Sign Up</button>
-          <button id="resetPassword" className="overlay_btn" onClick={() => goToResetPassword()}>Find my Password</button>
+
+        <div id="login-tab-content" className={`tab-content ${activeTab === 'login' ? 'active' : ''}`}>
+          <form onSubmit={onSubmitLogin}>
+            <h1>Sign In</h1>
+            
+            <input className="input" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input className="input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <button type="submit" className="button">Sign In</button>
+          </form>
+          <div className="help-text">
+            <p><a href="#" onClick={goToResetPassword}>Forget your password?</a></p>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
