@@ -11,13 +11,21 @@ export default () => {
         getSession().then((session) => {
             setName(session.name);
         });
-    });
+    }, []);
 
     return (
-        <div className="settings">
-            <h2>Settings</h2>
-            <ChangeName name={name} />
-            <ChangePassword/>
+        <div className="profile-container">
+            <div class="profile-box">
+            <h1 class="title">Settings</h1>
+                <div className="grid">
+                    <div class="form-group">
+                        <ChangeName name={name} />
+                    </div>
+                    <div class="form-group">
+                        <ChangePassword/>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

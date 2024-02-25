@@ -1,41 +1,108 @@
-.profile {
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .profile-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .profile-picture {
-    background-color: #e0e0e0;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-  }
-  
-  .user-stats .stat {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  
-  .user-stats .stat-label {
-    font-size: 0.9em;
-    color: #666;
-  }
-  
-  .user-stats .stat-value {
-    display: block;
-    font-size: 1.2em;
-    color: #333;
-  }
-  
-  .user-name {
-    margin-top: 15px;
-    font-size: 1.4em;
-    color: #333;
-  }
-  
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+.profile-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.profile-box {
+	background: #fff;
+	width: 100%;
+	padding: 1rem;
+}
+
+.title {
+	font-size: 24px;
+	line-height: 28px;
+	font-weight: bold;
+	color: #374151;
+	padding: 11px;
+	border-bottom: 1px solid #d7dbdf;
+}
+
+.form-group {
+	margin-top: 25px;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label {
+	color: #374151;
+	font-size: 16px;
+	line-height: 19px;
+	margin-bottom: 10px;
+}
+
+.form-group [type]{
+	border: 1px solid #d2d6db;
+	border-radius: 6px;
+	padding: 15px;
+	margin: 5px 0;
+    width: 100%;
+}
+.form-group [type]:hover{
+	border-color: #a8afb9;
+}
+.form-group [type]:focus{
+	border-color: #5850eb;
+}
+
+.form-button {
+	font-weight: bold;
+	line-height: 19px;
+	background: #5850eb;
+	border: none;
+	padding: 15px 25px;
+	border-radius: 6px;
+	color: white;
+	width: 100%;
+	margin-top: 24px;
+}
+.form-button:hover {
+	background: #6e67ee;
+}
+.form-button:focus {
+	background: #4239e8;
+}
+
+@media screen and (min-width: 768px) {
+	.profile-box {
+		margin: 2rem;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		max-width: 32rem;
+		padding: 2rem;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.profile-box {
+		max-width: 80%;
+		width: 100%;
+	}
+
+	.checkboxes {
+		display: flex;
+	}
+	.checkboxes > :not(:first-child) {
+		margin-left: 1rem;
+	}
+
+	/* .grid {
+		display: grid;
+		grid-gap: 24px;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-auto-rows: 1fr;
+	} */
+
+
+	.fbutton-container {
+		text-align: right;
+	}
+
+	.fbutton {
+		width: auto;
+	}
+}
