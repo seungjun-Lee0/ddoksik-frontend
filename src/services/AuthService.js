@@ -3,7 +3,7 @@ import apiClient from '../ApiClient'; // apiClient import 경로를 확인해주
 // Function to verify JWT token with the backend using axios
 export const verifyTokenWithBackend = async (token) => {
   try {
-    const response = await apiClient.get('api/v1/users/protected-route', {
+    const response = await apiClient.get('api/v1/user/protected-route', {
       headers: {
         'Authorization': `Bearer ${token}`, // 토큰을 Authorization 헤더에 포함하여 전송
       },
