@@ -25,11 +25,11 @@ build_docker:
   only:
     - main
   before_script:
-    - docker login -u $REG_USER -p $REG_PW $REG_ADDRESS
+    - docker login -u $REG_USER -p $REG_PW gitlab.ddoksik2.site:5050
   script:
-    - docker build -t gitlab.bangwol08.com:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG .
+    - docker build -t gitlab.ddoksik2.site:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG .
   after_script:
-    - docker push gitlab.bangwol08.com:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG
+    - docker push gitlab.ddoksik2.site:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG
 
 get_kustomization:
   image: bitnami/git:latest
@@ -40,13 +40,13 @@ get_kustomization:
     - git config --global user.name "gitlab runner"
     - git config --global user.email "bangwol08@gmail.com"
   script:
-    - git clone -b main --single-branch https://$GITLAB_ID:$GITLAB_TOKEN@gitlab.bangwol08.com/bangwol08/healthcare_deploy.git
+    - git clone -b main --single-branch https://$GITLAB_ID:$GITLAB_TOKEN@gitlab.ddoksik2.site/bangwol08/healthcare_deploy.git
   artifacts:
     paths:
       - healthcare_deploy
 
 set_kustomization:
-  image: gitlab.bangwol08.com:5050/bangwol08/healthcare_front/kustomize:latest
+  image: gitlab.ddoksik2.site:5050/bangwol08/healthcare_front/kustomize:latest
   stage: deploy
   needs: [get_kustomization]
   only:
@@ -54,7 +54,7 @@ set_kustomization:
   before_script:
     - cd healthcare_deploy
   script:
-    - kustomize edit set image ui-image=gitlab.bangwol08.com:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG
+    - kustomize edit set image ui-image=gitlab.ddoksik2.site:5050/bangwol08/healthcare_front/uiservice:$IMAGE_TAG
   artifacts:
     paths:
       - healthcare_deploy
