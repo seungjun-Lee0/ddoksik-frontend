@@ -1,11 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CognitoUser } from 'amazon-cognito-identity-js';
-import { AccountContext } from '../Context/Account';
-import UserPool from '../Context/UserPool';
-import { fetchUserHealthProfile } from '../services/HealthProfileService';
-
-import '../assets/css/login.css';
+import { AccountContext } from '../../Context/Account';
+import UserPool from '../../Context/UserPool';
+import { fetchUserHealthProfile } from '../../services/HealthProfileService';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -138,7 +136,7 @@ function Login() {
             <button type="submit" className="button">Sign In</button>
           </form>
           <div className="help-text">
-            <p><a href="#" onClick={goToResetPassword}>Forget your password?</a></p>
+            <p><a onClick={goToResetPassword}>Forget your password?</a></p>
           </div>
         </div>
       </div>

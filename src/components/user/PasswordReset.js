@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CognitoUser } from 'amazon-cognito-identity-js';
-import UserPool from '../Context/UserPool';
+import UserPool from '../../Context/UserPool';
 import { useNavigate } from 'react-router-dom';
 
 const PasswordReset = () => {
@@ -45,18 +45,31 @@ const PasswordReset = () => {
     };
 
     return (
-        <div>
+        <div className='profile-container'>
             {stage === 1 && (
-                <div>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-                    <button onClick={requestPasswordReset}>Send Verification Code</button>
+                <div className='profile-box'>
+                    <div className='grid'>
+                        <div className='form-group'>
+                            <legend class="checkbox-group-legend">Reset your Password</legend>
+                            <label htmlFor="email">Your Email:</label>
+                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+                            <button className="form-button" onClick={requestPasswordReset}>Send Verification Code</button>
+                        </div>
+                    </div>
                 </div>
             )}
             {stage === 2 && (
-                <div>
-                    <input type="text" value={verificationCode} onChange={(e) => setVerificationCode(e.target.value)} placeholder="Verification Code" />
-                    <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="New Password" />
-                    <button onClick={resetPassword}>Reset Password</button>
+                <div className='profile-box'>
+                    <div className='grid'>
+                        <div className='form-group'>
+                            <legend class="checkbox-group-legend">Reset your Password</legend>
+                            <label htmlFor="verfication-code">Verification Code:</label>
+                            <input type="text" value={verificationCode} onChange={(e) => setVerificationCode(e.target.value)} placeholder="Verification Code" />
+                            <label htmlFor="password">New Password:</label>
+                            <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="New Password" />
+                            <button className="form-button" onClick={resetPassword}>Reset Password</button>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

@@ -1,20 +1,64 @@
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+.diet-modal-content {
+  display: flex;
+  background-color: var(--active-light-color);
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.diet-modal-content label{
+  padding: 3px 6px;
+  font-size: 12px;
+  width: 65%;
+}
+
+.diet-modal-content label input{
+  width: 45%;
+  background: var(--alert-bg-color);
+  border: 0.5px solid #fff;
+  border-radius: 5px;
+  text-indent: 5px;
+  margin-left: 10px;
+}
+
+.dark-mode .diet-modal-content {
+  background-color: var(--inactive-color);
+  color: var(--subtitle-color);
+}
+
+.dark-mode .diet-edit-button{
+  background-color: var(--inactive-color);
+  color: var(--subtitle-color);
+}
+
+
+.diet-edit-flex{
+  display: flex;
+  margin-top: 5px;
+}
+
+.diet-edit-button{
+  border: none;
+  background: transparent;
+  color: var(--active-color);
+  padding-right: 6px;
+}
+
+.meal-type-buttons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.meal-type-buttons button{
+  width: 48%;
+  height: 150px;
+  margin: 1%;
+  border: 2px solid #b5bfd9;
+  border-radius: 10px;
+  color: var(--body-color);
+  background-color: var(--inactive-color);
+}

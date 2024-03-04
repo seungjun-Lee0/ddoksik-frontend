@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchUserHealthProfile, updateUserHealthProfile } from '../services/HealthProfileService';
+import { fetchUserHealthProfile, updateUserHealthProfile } from '../../services/HealthProfileService';
 
-import { AccountContext } from '../Context/Account';
+import { AccountContext } from '../../Context/Account';
 
 function HealthProfileForm({ hasProfile }) {
   const navigate = useNavigate();

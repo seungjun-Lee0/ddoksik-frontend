@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchUserHealthProfile } from '../services/HealthProfileService'; // 서비스에서 fetchUserHealthProfile 함수 임포트
+import { fetchUserHealthProfile } from '../../services/HealthProfileService'; // 서비스에서 fetchUserHealthProfile 함수 임포트
 
-import { AccountContext } from '../Context/Account';
+import { AccountContext } from '../../Context/Account';
 
 function ViewHealthProfile() {
   const [healthProfile, setHealthProfile] = useState(null);
