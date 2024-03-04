@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react";
-import { AccountContext } from "../Context/Account";
-import { Modal } from "./shared/ErrorModal";
+import { AccountContext } from "../../Context/Account";
+import { Modal } from "../shared/ErrorModal";
 
 export default () => {
     const [password, setPassword] = useState("");
@@ -36,6 +36,7 @@ export default () => {
   return (
     <div>
       <form onSubmit={onSubmit}>
+        <label htmlFor="password">Change Password:</label>
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <input type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
         <input type="password" placeholder="Confirm New Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />

@@ -2,30 +2,36 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from '../src/components/shared/Header';
 import Footer from '../src/components/shared/Footer';
-import Login from './components/Login';
-import Register from './components/Register';
-import PasswordReset from './components/PasswordReset';
-import HealthProfileForm from './components/HealthProfileForm';
-import ViewHealthProfile from './components/ViewHealthProfile';
+import Login from './components/user/Login';
+import Register from './components/user/Register';
+import PasswordReset from './components/user/PasswordReset';
+import HealthProfileForm from './components/user/HealthProfileForm';
+import ViewHealthProfile from './components/user/ViewHealthProfile';
 
 import { Account } from './Context/Account';
 import UserPool from './Context/UserPool';
-
-import Settings from './components/Settings';
+import Settings from './components/user/Settings';
+import Foods from './components/diet/AddFoods';
+import MealType from './components/diet/MealTypeSelect';
 
 import Home from '../src/components/shared/Home';
 
+import './assets/css/login.css';
 import './assets/css/modals.css';
 import './assets/css/main.scss';
 import './assets/css/checkbox.scss';
 import './assets/css/profile.css';
-
+import './assets/css/list.css';
+import './assets/css/loader.css';
 
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
+    if(localStorage.getItem("darkMode") == "true"){
+      document.body.classList.add("dark-mode");
+    }
     const userInfo = UserPool.getCurrentUser();
     if (userInfo) {
         setUser(userInfo);
@@ -49,6 +55,8 @@ function App() {
         <Route path="/home" element={user ? <Home /> : <Navigate to="/login" />} />
         <Route path="/login" element={user ? <Navigate to="/home" /> : <Login /> } />
         <Route path="/settings" element={user ? <Settings /> : <Navigate to="/login" /> } />
+        <Route path="/search-foods" element={user ? <Foods /> : <Navigate to="/login" /> } />
+        <Route path="/meal-type-select" element={user ? <MealType /> : <Navigate to="/login" /> } />
         <Route path="/register" element={<Register />} />
         <Route path="/reset-password" element={<PasswordReset />} />
         <Route path="/view-health-profile" element={user ? <ViewHealthProfile /> : <Navigate to="/login" />} />

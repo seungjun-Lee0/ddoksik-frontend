@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { AccountContext } from "../Context/Account";
+import { AccountContext } from "../../Context/Account";
 import ChangePassword from "./ChangePassword"; 
 import ChangeName from "./ChangeName";
 
@@ -15,13 +15,13 @@ export default () => {
 
     return (
         <div className="profile-container">
-            <div class="profile-box">
-            <h1 class="title">Settings</h1>
+            <div className="profile-box">
+            <h1 className="title">Settings</h1>
                 <div className="grid">
-                    <div class="form-group">
+                    <div className="form-group">
                         <ChangeName name={name} />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <ChangePassword/>
                     </div>
                 </div>

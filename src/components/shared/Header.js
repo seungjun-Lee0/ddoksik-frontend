@@ -21,9 +21,10 @@ function Header({ user }) {
     }
   }, []); // 빈 배열을 전달하여 컴포넌트 마운트 시에만 실행되도록 함
 
-  // React 방식으로 dark mode 토글 함수 정의
   const toggleDarkMode = () => {
-    document.body.classList.toggle("dark-mode");
+    const isDarkMode = document.body.classList.toggle("dark-mode");
+    // 클래스 토글 후, 현재 다크 모드가 활성화되었는지 확인하여 그에 따라 'true' 또는 'false'를 저장합니다.
+    localStorage.setItem("darkMode", isDarkMode ? "true" : "false");
   };
       
   return (

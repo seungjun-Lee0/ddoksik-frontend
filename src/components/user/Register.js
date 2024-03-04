@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
-import Account, { AccountContext } from '../Context/Account';
-import UserPool from '../Context/UserPool';
+import Account, { AccountContext } from '../../Context/Account';
+import UserPool from '../../Context/UserPool';
 
 function Register() {
   const [email, setEmail] = useState('');

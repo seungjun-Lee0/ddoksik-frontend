@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-import { AccountContext } from "../Context/Account";
-import { Modal } from "./shared/ErrorModal";
+import { AccountContext } from "../../Context/Account";
+import { Modal } from "../shared/ErrorModal";
 
 function ChangeName({ name: initialName }) {
     const [name, setName] = useState(initialName); // 초기 이름을 props에서 받아옵니다.
@@ -41,7 +41,7 @@ function ChangeName({ name: initialName }) {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <label htmlFor="name">New name:</label>
+                <label htmlFor="name">Change Name:</label>
                 <input
                     id="name"
                     type="text"
