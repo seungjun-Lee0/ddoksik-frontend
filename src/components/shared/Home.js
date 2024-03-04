@@ -21,7 +21,7 @@ export default function Home() {
         setToken(session.idToken.jwtToken)
         try {
           verifyTokenWithBackend(session.idToken.jwtToken).then(() => {
-            fetch(`${BASIC_URL}/users/${session.user.username}/meal-plans/grouped`, {
+            fetch(`${BASIC_URL}/diets/${session.user.username}/meal-plans/grouped`, {
               method: 'GET',
               headers: {
                 'Authorization': `Bearer ${session.idToken.jwtToken}`,
