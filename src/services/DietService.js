@@ -1,4 +1,4 @@
-export const BASIC_URL = 'http://localhost:8001'
+export const BASIC_URL = 'https://www.ddoksik2.site/api/v1/diet'
 
 // 선택된 항목을 식단에 추가하는 함수
 export const addToDiet = async (item, mealType, date, quantity, username, token) => {
