@@ -95,15 +95,15 @@ function HealthProfileForm({ hasProfile }) {
 
   return (
     <form onSubmit={handleSubmit}>
-    <div className='profile-container'>
-      <div className="profile-box">
+    <div className='user-profile-container'>
+      <div className="user-profile-box">
 
-      <h1 className="title">Health Profile</h1>
+      <h1 className="title">나의 건강 프로필</h1>
 
       <div className="grid">
         <div className="form-group">
         <div className="checkbox-group">
-              <legend className="checkbox-group-legend">Choose your Goal</legend>
+              <legend className="checkbox-group-legend">운동 목표</legend>
               <div className="checkbox">
                 <label className="checkbox-wrapper">
                 <input
@@ -119,7 +119,7 @@ function HealthProfileForm({ hasProfile }) {
                       <path fillRule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5M8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6"/>
                     </svg>
                     </span>
-                    <span className="checkbox-label">Lose Weight</span>
+                    <span className="checkbox-label">체중 감량</span>
                   </span>
                 </label>
               </div>
@@ -139,7 +139,7 @@ function HealthProfileForm({ hasProfile }) {
                       <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
                     </svg>
                     </span>
-                    <span className="checkbox-label">Maintain Weight</span>
+                    <span className="checkbox-label">체중 유지</span>
                   </span>
                 </label>
               </div>
@@ -158,7 +158,7 @@ function HealthProfileForm({ hasProfile }) {
                       <path fillRule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"/>
                     </svg>
                     </span>
-                    <span className="checkbox-label">Gain Weight</span>
+                    <span className="checkbox-label">체중 증량</span>
                   </span>
                 </label>
               </div>
@@ -182,7 +182,7 @@ function HealthProfileForm({ hasProfile }) {
 
         <div className="form-group">
           <div className="checkbox-group">
-            <legend className="checkbox-group-legend">Choose your Gender</legend>
+            <legend className="checkbox-group-legend">성별</legend>
             <div className="checkbox">
               <label className="checkbox-wrapper">
                 <input className="checkbox-input" type="checkbox" value="male" checked={gender === "male"} onChange={handleGenderChange}/>
@@ -192,7 +192,7 @@ function HealthProfileForm({ hasProfile }) {
                     <path fillRule="evenodd" d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8"/>
                   </svg>
                   </span>
-                  <span className="checkbox-label">Male</span>
+                  <span className="checkbox-label">남성</span>
                 </span>
               </label>
             </div>
@@ -205,7 +205,7 @@ function HealthProfileForm({ hasProfile }) {
                     <path fillRule="evenodd" d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8M3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5"/>
                   </svg>
                   </span>
-                  <span className="checkbox-label">Female</span>
+                  <span className="checkbox-label">여성</span>
                 </span>
               </label>
             </div>
@@ -214,7 +214,7 @@ function HealthProfileForm({ hasProfile }) {
 
         <div className="form-group">
           <div className="checkbox-group">
-              <legend className="checkbox-group-legend">Choose Activity Level</legend>
+              <legend className="checkbox-group-legend">나의 활동량</legend>
               <div className="checkbox">
                 <label className="checkbox-wrapper">
                 <input
@@ -277,7 +277,7 @@ function HealthProfileForm({ hasProfile }) {
 
         <div className="form-group">
           <div className="checkbox-group">
-            <legend className="checkbox-group-legend">Allergy Intolerance Type</legend>
+            <legend className="checkbox-group-legend">나의 알러지 유형</legend>
             <div className="checkbox">
               <label className="checkbox-wrapper">
                 <input className="checkbox-input" type="checkbox" name="dairy" checked={allergyIntoleranceType.dairy} onChange={handleAllergyChange} /> 
@@ -293,7 +293,7 @@ function HealthProfileForm({ hasProfile }) {
                       <path d="M100.95624,182.08757l-12.02532,24.0508a7.96794,7.96794,0,0,1-8.99115,4.20918c-24.53866-5.99924-45.69277-16.459-61.10006-29.85069a8.05224,8.05224,0,0,1-2.47193-8.38972L50.34158,58.8607a8.0212,8.0212,0,0,1,4.62655-5.1091,175.85349,175.85349,0,0,1,29.66439-9.18283,8.0178,8.0178,0,0,1,9.31924,5.28642l7.97318,23.91964" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></path>
                     </svg>
                   </span>
-                  <span className="checkbox-label">Dairy</span>
+                  <span className="checkbox-label">유제품</span>
                 </span>
               </label>
             </div>
@@ -307,7 +307,7 @@ function HealthProfileForm({ hasProfile }) {
                     <path d="M6.848 5.933a2.5 2.5 0 1 0 2.5 4.33 2.5 2.5 0 0 0-2.5-4.33m-1.78 3.915a3.5 3.5 0 1 1 6.061-3.5 3.5 3.5 0 0 1-6.062 3.5z"/>
                   </svg>
                   </span>
-                  <span className="checkbox-label">Nut</span>
+                  <span className="checkbox-label">견과류</span>
                 </span>
               </label>
             </div>
@@ -323,7 +323,7 @@ function HealthProfileForm({ hasProfile }) {
                       <line x1="16" y1="104" x2="240" y2="104" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12"></line>
                     </svg>
                   </span>
-                  <span className="checkbox-label">Seafood</span>
+                  <span className="checkbox-label">해산물</span>
                 </span>
               </label>
             </div>
@@ -333,7 +333,7 @@ function HealthProfileForm({ hasProfile }) {
 
       
       <div className="button-container">
-        <button className="form-button" type="submit">Submit Health Profile</button>
+        <button className="form-button" type="submit">작성 완료</button>
       </div>
       </div>
     </div> 

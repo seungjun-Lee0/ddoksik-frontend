@@ -27,7 +27,6 @@ function Login() {
     
     authenticate(email, password)
     .then(data => {
-        console.log("Logged in!", data);
         fetchUserHealthProfile(UserPool.getCurrentUser().username, data.idToken.jwtToken)
         .then(profile => {
           window.location.href = '/home'
@@ -39,6 +38,7 @@ function Login() {
     })
     .catch(err => {
         console.error("Failed to Log in", err);
+        alert('아이디 혹은 비밀번호가 일치하지 않습니다.');
     })
   };
 
@@ -47,9 +47,11 @@ function Login() {
 
     signUp(email, name, password).then(data => {
       console.log("registered Successfully", data)
+      alert('회원가입이 완료되었습니다.');
     })
     .catch(err => {
       console.log("Failed to register", err);
+      alert('회원가입에 실패하였습니다.');
     })
   };
 
@@ -62,9 +64,11 @@ function Login() {
     user.confirmRegistration(confirmationCode, true, (err, result) => {
         if (err) {
             console.error(err);
+            alert('인증번호 발송에 실패하였습니다.');
             return;
         }
         console.log(result); // 'SUCCESS'를 기대합니다.
+        alert('인증번호가 발송되었습니다.');
         navigate('/home'); // 이메일 확인 후 홈 페이지로 이동
     });
   };
@@ -74,69 +78,71 @@ function Login() {
   }
 
   return (
-    <div className="form-wrap">
-      <div className="tabs">
-        <h3 className={`signup-tab ${activeTab === 'signup' ? 'active' : ''}`} onClick={() => handleTabClick('signup')}>
-          <a>Sign Up</a>
-        </h3>
-        <h3 className={`login-tab ${activeTab === 'login' ? 'active' : ''}`} onClick={() => handleTabClick('login')}>
-          <a>Login</a>
-        </h3>
-      </div>
-
-      <div className="tabs-content">
-        <div id="signup-tab-content" className={`tab-content ${activeTab === 'signup' ? 'active' : ''}`}>
-          <form onSubmit={onSubmitRegister}>
-            <h1>Create Account</h1>
-          
-            <input
-            className='input'
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            className='input'
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className='input'
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            className='input'
-            type="text"
-            placeholder="Confirmation Code"
-            value={confirmationCode}
-            onChange={(e) => setConfirmationCode(e.target.value)}
-          />
-
-          <button type="submit" className="button">Confirm Registration</button>
-          <button type="button" onClick={confirmRegistration} className="button">Register</button>
-          </form>
-          <div className="help-text">
-            <p>By signing up, you agree to our</p>
-            <p><a href="#">Terms of service</a></p>
-          </div>
+    <div className='login-container'>
+      <div className="form-wrap">
+        <div className="tabs">
+          <h3 className={`signup-tab ${activeTab === 'signup' ? 'active' : ''}`} onClick={() => handleTabClick('signup')}>
+            <a>Sign Up</a>
+          </h3>
+          <h3 className={`login-tab ${activeTab === 'login' ? 'active' : ''}`} onClick={() => handleTabClick('login')}>
+            <a>Login</a>
+          </h3>
         </div>
 
-        <div id="login-tab-content" className={`tab-content ${activeTab === 'login' ? 'active' : ''}`}>
-          <form onSubmit={onSubmitLogin}>
-            <h1>Sign In</h1>
+        <div className="tabs-content">
+          <div id="signup-tab-content" className={`tab-content ${activeTab === 'signup' ? 'active' : ''}`}>
+            <form onSubmit={onSubmitRegister}>
+              <h1>Create Account</h1>
             
-            <input className="input" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input className="input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <button type="submit" className="button">Sign In</button>
-          </form>
-          <div className="help-text">
-            <p><a onClick={goToResetPassword}>Forget your password?</a></p>
+              <input
+              className='input'
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              className='input'
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className='input'
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <input
+              className='input'
+              type="text"
+              placeholder="Confirmation Code"
+              value={confirmationCode}
+              onChange={(e) => setConfirmationCode(e.target.value)}
+            />
+
+            <button type="submit" className="button">CONFIRMATION CODE</button>
+            <button type="button" onClick={confirmRegistration} className="button">REGISTER</button>
+            </form>
+            <div className="help-text">
+              <p>By signing up, you agree to our</p>
+              <p><a href="#">Terms of service</a></p>
+            </div>
+          </div>
+
+          <div id="login-tab-content" className={`tab-content ${activeTab === 'login' ? 'active' : ''}`}>
+            <form onSubmit={onSubmitLogin}>
+              <h1>Sign In</h1>
+              
+              <input className="input" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input className="input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+              <button type="submit" className="button">LOGIN</button>
+            </form>
+            <div className="help-text">
+              <p><a onClick={goToResetPassword}>Forget your password?</a></p>
+            </div>
           </div>
         </div>
       </div>
