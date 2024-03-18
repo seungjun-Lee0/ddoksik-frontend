@@ -1,6 +1,5 @@
-import apiClient from '../ApiClient'; // apiClient import 경로를 확인해주세요.
+import apiClient from '../ApiClient';
 
-// Function to verify JWT token with the backend using axios
 export const verifyTokenWithBackend = async (token) => {
   try {
     const response = await apiClient.get('/api/v1/user/protected-route', {

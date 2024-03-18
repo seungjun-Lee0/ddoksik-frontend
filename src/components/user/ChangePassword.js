@@ -36,11 +36,11 @@ export default () => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <label htmlFor="password">Change Password:</label>
+        <label htmlFor="password">비밀번호 변경하기:</label>
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <input type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
         <input type="password" placeholder="Confirm New Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-        <button type="submit">Change Password</button>
+        <button type="submit">수정</button>
       </form>
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         <p>{modalContent}</p>

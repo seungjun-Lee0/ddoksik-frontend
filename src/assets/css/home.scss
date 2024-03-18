@@ -1,0 +1,222 @@
+.main-wrapper {
+   width: 100%;
+   display: grid;
+   flex-grow: 1;
+   scroll-behavior: smooth;
+   padding-bottom: 1px;
+   margin: 0 auto;
+   overflow: auto;
+   justify-items: center;
+ }
+
+.home-wrapper {
+   width: 98%;
+   padding: 20px;
+   margin-top: 15px;
+   background: var(--header-bg-color);
+   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+   border-radius: 15px;
+   &:last-child {
+   border-bottom: none;
+   }
+   &-half{
+      display: flex;
+      width: 69%;
+      height: 130px;
+      margin-top: 10px;
+      padding: 5px;
+      background: var(--header-bg-color);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+   }
+   &-half-small {
+      display: flex;
+      width: 29%;
+      height: 130px;
+      margin-top: 10px;
+      padding: 5px;
+      background: var(--header-bg-color);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+   }
+}
+
+.progress {
+margin-top: 5px;
+border-radius: 4px;
+border: 0.1px solid #ddd;
+background-color: var(--body-bg-color);
+height: 9px;
+overflow: hidden;
+   &-bar {
+   background-color: var(--body-color);
+   border-radius: 4px;
+   width: 0%;
+   height: 100%;
+   transition: 2s linear both;
+   transition-property: width, background-color;
+   }
+   &-status {
+   text-align: right;
+   color: var(--main-color);
+   font-size: 10px;
+   font-weight: 600;
+   }
+   &-percentage{
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      padding-top: 5px;
+   }
+}
+
+.home-task {
+   &-recommendation{
+      display: flex;
+      width: 60%;
+      max-width: 230px;
+      height: 60px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(85, 85, 255, 0.6);
+      border-radius: 50px;
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+   }
+   &-recommendation:hover{
+      opacity: 0.8;
+   }
+   &-recommendation-button{
+      display: flex;
+      width: 60px;
+      height: 60px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(85, 85, 255, 0.6);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+   }
+   &-explanation{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+   }
+   &-status {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: var(--body-bg-color);
+      padding: 10px 0;
+      border-radius: 15px;
+      border: 1px solid #ddd;
+   }
+   &-stat {
+      width: 33%;
+      text-align: center;
+      border-right: 1px solid #ddd;
+   }
+   &-stat:last-child {
+      border-right: none;
+   }
+   &-number {
+   font-size: 17px;
+   font-weight: 700;
+   margin-bottom: 10px;
+   }
+   &-condition {
+   font-size: 12px;
+   color: var(--main-color);
+   font-weight: 700;
+   }
+   &-tasks {
+   margin-top: 4px;
+   font-size: 10px;
+   font-weight: 600;
+   color: var(--main-light-color);
+   }
+   &-card{
+   display: flex;
+   border-radius: 10px;
+   padding: 10px;
+   margin: 10px 0;
+   background-color: var(--body-bg-color);
+   flex-direction: row;
+   justify-content: center;
+   flex-wrap: wrap;     
+   }
+   &-button {
+    display: flex;
+    border-radius: 50%;
+    background: rgba(85, 85, 255, 0.6);
+    color: white;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+   }
+   &-button:hover {
+      opacity: 0.8;
+   }
+   
+}
+
+.home-project-title {
+   width: 100%;
+   text-align: center;
+   text-transform: uppercase;
+   font-weight: 700;
+   margin-bottom: 10px;
+   background-color: var(--alert-bg-color);
+   border-radius: 10px;
+   padding: 5px 0;
+}
+
+.canvas {
+   background-color: var(--body-bg-color);
+   border-radius: 10px;
+   padding: 5px;
+}
+
+
+.canvas-modal{
+   position: absolute;
+   width: 85%;
+   text-indent: 18%;
+   margin-top: -25%;
+}
+
+.home-animation{
+   animation: slideY 0.6s both;
+}
+
+@media screen and (max-width: 620px){
+.main-wrapper {
+    grid-template-columns: repeat(1, 1fr) !important;
+}
+}
+
+@media screen and (max-width: 930px){
+.main-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+}
+}
+
+@media screen and (max-width: 1212px){
+.main-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+}
+}

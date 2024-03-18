@@ -41,14 +41,14 @@ function ChangeName({ name: initialName }) {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <label htmlFor="name">Change Name:</label>
+                <label htmlFor="name">이름 변경하기:</label>
                 <input
                     id="name"
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <button type="submit">Update Name</button>
+                <button type="submit">수정</button>
             </form>
         </div>
     );

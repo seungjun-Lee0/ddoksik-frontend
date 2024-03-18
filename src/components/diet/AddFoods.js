@@ -17,10 +17,14 @@ function NutritionList() {
   const [loading, setLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
   const [date, setDate] = useState('');
+  const [pastDate, setPastDate] = useState(false);
   const [mealType, setMealType] = useState('');
   const [username, setUsername] = useState('');
   const [quantities, setQuantities] = useState({});
   const [token, setToken] = useState('');
+
+  const [tempSearchTerm, setTempSearchTerm] = useState('');
+
 
   const { getSession } = useContext(AccountContext);
 
@@ -33,7 +37,10 @@ function NutritionList() {
         setMealType(getMealType);
         if(getDate){
             setDate(getDate);    
-        } else{
+        } 
+        else if(pastDate){
+        }
+        else{
             setDate(formattedDate);
         }
         
@@ -63,16 +70,32 @@ function NutritionList() {
   }, [searchTerm, pageNo, numOfRows]); // 검색어, 페이지 번호, 행 수가 변경될 때마다 요청
 
   
+  // 입력 필드 변경 핸들러
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "tempSearchTerm") {
+        setTempSearchTerm(e.target.value);
+    } else if (name === "date") {
+        setDate(value);
+        setPastDate(true);
+    }
+  };
+
+  // 검색 버튼 클릭 핸들러
+  const handleSearchClick = () => {
+    setSearchTerm(tempSearchTerm); // 사용자가 입력한 임시 검색어를 실제 검색어 상태로 설정
+    setPageNo(1); // 검색 버튼을 클릭할 때마다 페이지 번호를 1로 리셋
+  };
 
   // 페이지 이동 함수
   const goToPrevPage = () => setPageNo(Math.max(1, pageNo - 1));
   const goToNextPage = () => setPageNo(Math.min(totalPages, pageNo + 1));
 
   return (
-    <div className="profile-container">
+    <div className="foods-container">
         <div className="profile-box">
             <div className='list-input'>
-                <h2>Search Foods</h2>
+                <h2>식단 추가</h2>
                 {/* <select
                     value={mealType}
                     onChange={(e) => setMealType(e.target.value)}>
@@ -82,14 +105,20 @@ function NutritionList() {
                     <option value="dinner">저녁</option>
                     <option value="snack">간식</option>
                 </select> */}
+
+                <input type="date" name="date" value={date} onChange={handleInputChange} />
                 <input
                     type="text"
                     placeholder="Search term"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    name="tempSearchTerm"
+                    value={tempSearchTerm} // 임시 검색어 상태와 연결
+                    onChange={handleInputChange} // 입력 필드 변경 시 handleInputChange 호출
                 />
+                <button className="search-food-button" onClick={handleSearchClick}>Search</button> {/* 검색 버튼 추가 */}
+
+                
                 <div>
-                    Rows per page:
+                    페이지당 결과 수: 
                     <select value={numOfRows} onChange={(e) => setNumOfRows(parseInt(e.target.value, 10))}>
                     <option value="5">5</option>
                     <option value="10">10</option>

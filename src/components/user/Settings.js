@@ -14,8 +14,8 @@ export default () => {
     }, []);
 
     return (
-        <div className="profile-container">
-            <div className="profile-box">
+        <div className="user-profile-container">
+            <div className="user-profile-box">
             <h1 className="title">Settings</h1>
                 <div className="grid">
                     <div className="form-group">

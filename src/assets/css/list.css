@@ -51,7 +51,7 @@
 .list-input [type]{
     border: 1px solid #d2d6db;
     border-radius: 6px;
-    background: var(--inactive-color);
+    background-color: var(--inactive-color);
     color: var(--body-color);
     padding: 15px;
     margin: 5px 0;
@@ -61,6 +61,16 @@
 
 .list-input [type]:hover {
     border-color: #a8afb9;
+}
+
+.list-input div select{
+  background-color: var(--inactive-color);
+  color: var(--body-color);
+  padding: 0px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: 1px solid #d2d6db;
+  font-size: 15px;
 }
 
 .list-buttons {

@@ -26,3 +26,27 @@ export const updateUserHealthProfile = async (username, profileData, profileExis
     throw error;
   }
 };
+
+export const fetchUserDailyCalories = async (username, token) => {
+  try {
+    const response = await apiClient.get(`/api/v1/user/users/${username}/daily-calories/`, {
+      headers: { 'Authorization': `Bearer ${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const fetchRecommendedDiet = async (username, token) => {
+    try {
+      const response = await apiClient.get(`/api/v1/user/users/${username}/recommended_meal_plans/`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return response.data;
+  }catch (error){
+    throw error;
+  }
+}

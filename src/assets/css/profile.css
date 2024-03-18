@@ -1,12 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 
-.profile-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 80px;
-  margin-bottom: 110px;
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    margin-bottom: 110px;
+    height: 85vh;
+    justify-content: center;
 }
+
+.foods-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 80px;
+	margin-bottom: 110px;
+  }
 
 .profile-box {
 	display: flex;
@@ -16,11 +26,12 @@
 	background: var(--header-bg-color);
 	width: 90%;
 	padding: 1rem;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 }
 
 .title {
+	margin-top: 10px;
 	font-size: 24px;
 	line-height: 28px;
 	font-weight: bold;
@@ -49,7 +60,7 @@
 .form-group [type]{
 	border: 1px solid #d2d6db;
 	border-radius: 6px;
-	background: var(--inactive-color);
+	background: var(--header-bg-color);
 	color: var(--body-color);
 	padding: 15px;
 	margin: 5px 0;
@@ -71,7 +82,7 @@
 	border-radius: 6px;
 	color: white;
 	width: 100%;
-	margin-top: 24px;
+	margin: 24px 0;
 }
 .form-button:hover {
 	background: #6e67ee;
