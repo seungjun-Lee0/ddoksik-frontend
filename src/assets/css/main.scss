@@ -131,6 +131,10 @@ body {
   .home-task-recommendation{
     background-color: var(--alert-bg-color);
   }
+
+  .logo span {
+    color: var(--placeholder-color);
+  }
 }
 
 .job {
@@ -684,11 +688,11 @@ body {
 
     
 .header-button {
+  padding: 11px 20px;
   font-weight: bold;
   line-height: 9px;
   background: var(--active-color);
   border: none;
-  padding: 15px 25px;
   border-radius: 6px;
   color: white;
   width: 100%;

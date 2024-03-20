@@ -72,7 +72,9 @@ export default function Home() {
             <div className="home-project-title">주별 칼로리 섭취량 비교</div>
             <WeeklyCharts />
           </div>
-
+          {showDetails && recommendedDiet && (
+          <RenderDietPlan dietData={recommendedDiet} />
+          )}
           <div className='home-wrapper'>
             <div className="home-project-title">오늘의 영양 섭취</div>
             <div className="task-explanation">목표 칼로리</div>
@@ -131,6 +133,7 @@ export default function Home() {
           </div>
         </div>
         
+
         <div className='home-wrapper-half'>
           <div className="home-project-title">맞춤형 추천 식단</div>
           {/* 추천 식단 유형 설명이 여기에 표시됩니다 */}
@@ -156,9 +159,7 @@ export default function Home() {
           </a>
         </div>
                    
-        {showDetails && recommendedDiet && (
-          <RenderDietPlan dietData={recommendedDiet} />
-        )}
+       
       </div>
       
     );
@@ -189,7 +190,7 @@ export default function Home() {
   function RenderDietPlan({ dietData }) {
     return (
       <div className='home-wrapper home-animation'>
-        <div className="home-project-title">식단 정보</div>
+        <div className="home-project-title">추천 식단 정보</div>
 
         {Object.entries(dietData).map(([mealType, meals]) => (
           <div className='home-task-card' key={mealType}>

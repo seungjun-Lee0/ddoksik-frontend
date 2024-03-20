@@ -6,6 +6,7 @@
 .login-container{
   display: flex;
   height: 80vh;
+  min-height: 700px;
   align-items: center; 
 }
 
@@ -61,7 +62,7 @@
     width: 100%;
     margin: 3px 0;
     padding: .8em 0 10px .8em;
-    background-color: #5850eb;
+    background-color: var(--active-color);
     border: none;
     color: #fff;
     cursor: pointer;
