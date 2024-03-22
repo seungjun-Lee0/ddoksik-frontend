@@ -89,9 +89,10 @@
  margin-top: 25px;
  svg {
   width: 36px;
+  height: 36px;
   padding: 10px;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: 100px;
   overflow: visible;
   background-color: var(--body-bg-color);
   border: 1px solid #ddd;

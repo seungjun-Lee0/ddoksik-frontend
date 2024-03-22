@@ -18,6 +18,7 @@ const Account = (props) => {
                             user.getUserAttributes((err, attributes) => {
                                 if (err) {
                                     reject(err);
+                                    logout();
                                 } else{
                                     const results = {};
     
