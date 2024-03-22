@@ -68,7 +68,8 @@
     cursor: pointer;
     text-transform: uppercase; }
     .form-wrap form .button:hover {
-      background-color: #5850eb; }
+      background-color: var(--active-color);
+    }
       
   .form-wrap form .checkbox {
     visibility: hidden;
