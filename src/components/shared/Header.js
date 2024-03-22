@@ -1,24 +1,15 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AccountContext } from '../../Context/Account'
 
 function Header({ user }) {
   const { logout } = useContext(AccountContext);
+  const [ darkmode, setDarkMode ] = useState('');
 
   useEffect(() => {
-    const header = document.querySelector(".header");
-
-    if (header) {
-      const handleScroll = (e) => {
-        e.target.scrollTop > 30
-          ? header.classList.add("header-shadow")
-          : header.classList.remove("header-shadow");
-      };
-
-      document.body.addEventListener("scroll", handleScroll);
-
-      // 컴포넌트 언마운트 시 이벤트 리스너 제거
-      return () => document.body.removeEventListener("scroll", handleScroll);
-    }
+    
+    setDarkMode(localStorage.getItem("darkMode"));
+    const mode = localStorage.getItem("darkMode") === "true";
+    setDarkMode(mode);  
   }, []); // 빈 배열을 전달하여 컴포넌트 마운트 시에만 실행되도록 함
 
   const toggleDarkMode = () => {
@@ -31,11 +22,9 @@ function Header({ user }) {
   return (
     <div className="header">
       <a href="/home" className='custom-link'>
-        <div className="logo">
-          <img src='logo.png'/>
-          <span>
-          DDokSik.
-          </span>
+      <div className="logo">
+          {!darkmode ? (<img src='logo.png'/>) : (<img src='logo2.png'/>)}
+          <span>DDokSik.</span>
         </div>
      </a>
      {/* <div className="header-menu">

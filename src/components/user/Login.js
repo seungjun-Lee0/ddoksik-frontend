@@ -51,7 +51,7 @@ function Login() {
     })
     .catch(err => {
       console.log("Failed to register", err);
-      alert('회원가입에 실패하였습니다.');
+      alert('인증번호 발송에 실패하였습니다.');
     })
   };
 
@@ -64,7 +64,7 @@ function Login() {
     user.confirmRegistration(confirmationCode, true, (err, result) => {
         if (err) {
             console.error(err);
-            alert('인증번호 발송에 실패하였습니다.');
+            alert('회원가입에 실패하였습니다.');
             return;
         }
         console.log(result); // 'SUCCESS'를 기대합니다.
