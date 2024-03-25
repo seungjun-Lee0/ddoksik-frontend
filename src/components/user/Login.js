@@ -47,7 +47,7 @@ function Login() {
 
     signUp(email, name, password).then(data => {
       console.log("registered Successfully", data)
-      alert('회원가입이 완료되었습니다.');
+      alert('인증번호가 발송되었습니다.');
     })
     .catch(err => {
       console.log("Failed to register", err);
@@ -68,7 +68,7 @@ function Login() {
             return;
         }
         console.log(result); // 'SUCCESS'를 기대합니다.
-        alert('인증번호가 발송되었습니다.');
+        alert('회원가입이 완료되었습니다.');
         navigate('/home'); // 이메일 확인 후 홈 페이지로 이동
     });
   };
@@ -118,7 +118,7 @@ function Login() {
             <input
               className='input'
               type="text"
-              placeholder="Confirmation Code"
+              placeholder="인증번호를 입력하세요."
               value={confirmationCode}
               onChange={(e) => setConfirmationCode(e.target.value)}
             />
