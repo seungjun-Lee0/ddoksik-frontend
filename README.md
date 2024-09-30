@@ -1,93 +1,147 @@
-# 똑똑한식단. 똑식이_프론트엔드
+# Ddoksik Frontend
 
+This is the frontend repository for the Ddoksik project, which offers diet and meal planning services. The application allows users to manage their health profiles, update diet plans, and receive nutritional guidance. It connects with various backend services to offer personalized experiences.
 
+## Table of Contents
 
-## Getting started
+- [Project Features](#project-features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Docker Setup](#docker-setup)
+- [Contributing](#contributing)
+- [License](#license)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Project Features
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- **User Authentication**: User login and registration functionality using `Account.js` and `UserPool.js`.
+- **Diet Management**: Users can update and track their diet plans with `UpdateDietPlans.js`.
+- **Health Profile Management**: Manage personal health details using `HealthProfileService.js`.
+- **Responsive Design**: Application is designed to work well on both desktop and mobile devices.
+- **CSS and SCSS Styling**: Custom styles using various CSS and SCSS files.
 
-## Add your files
+## Technologies Used
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.bangwol08.com/bangwol08/healthcare_front.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.bangwol08.com/bangwol08/healthcare_front/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+- **React**: JavaScript library for building the user interface.
+- **TypeScript**: Strongly typed language that builds on JavaScript.
+- **Styled Components**: CSS-in-JS library used for styling components.
+- **Axios**: HTTP client used to interact with backend services.
+- **Docker**: Containerized deployment setup.
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Prerequisites
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Make sure you have the following installed:
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+- Node.js (v16 or higher)
+- npm or yarn (for dependency management)
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+### Clone the Repository
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+```bash
+git clone https://github.com/seungjun-Lee0/ddoksik-frontend.git
+cd ddoksik-frontend
+```
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Install Dependencies
+Using npm:
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+```bash
+npm install
+```
+Or, using yarn:
 
-## License
-For open source projects, say how it is licensed.
+```bash
+yarn install
+```
+Usage
+Running the Application Locally
+To start the development server, run the following command:
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+```bash
+npm run start
+```
+Or, using yarn:
+
+```bash
+yarn start
+```
+This will start the application on http://localhost:3000.
+
+Building for Production
+To build the application for production, run:
+
+```bash
+npm run build
+```
+Or, using yarn:
+
+```bash
+yarn build
+```
+The production-ready code will be output to the build/ directory.
+
+Project Structure
+```graphql
+ddoksik-frontend/
+│
+├── public/                      # Static assets
+│   ├── favicon.ico               # Favicon for the application
+│   ├── index.html                # Main HTML file
+│   ├── logo.png                  # Logo images
+│   └── manifest.json             # Web app manifest
+│
+├── src/
+│   ├── Context/                  # React context for user and authentication management
+│   │   ├── Account.js            # Account management logic
+│   │   └── UserPool.js           # Cognito or user pool configuration
+│   ├── assets/css/               # Stylesheets (CSS/SCSS) for components
+│   │   ├── Card.module.css       # Module CSS for card components
+│   │   └── (various CSS files)   # Stylesheets for various components
+│   ├── components/               # Reusable UI components
+│   │   ├── diet/                 # Components related to diet features
+│   │   ├── shared/               # Shared components across the app
+│   │   └── user/                 # Components related to user profiles
+│   ├── services/                 # API interaction services
+│   │   ├── AuthService.js        # Handles authentication requests
+│   │   ├── DietService.js        # Handles diet-related API calls
+│   │   ├── HealthProfileService.js # Health profile API calls
+│   │   └── ApiClient.js          # Axios client configuration
+│   ├── App.js                    # Main application component
+│   ├── App.test.js               # Application tests
+│   ├── index.js                  # Main entry point
+│   └── setupTests.js             # Setup for testing framework
+│
+├── .gitignore                    # Files and directories to ignore in Git
+├── Dockerfile                    # Docker configuration for the project
+├── default.conf                  # Default configuration for Nginx or web server
+├── package.json                  # Project dependencies and scripts
+└── README.md                     # Project documentation
+```
+Docker Setup
+This project includes a Dockerfile for containerized deployment. Follow these steps to set up and run the project inside a Docker container:
+
+Build Docker Image
+```bash
+docker build -t ddoksik-frontend .
+```
+Run Docker Container
+```bash
+docker run -p 3000:3000 ddoksik-frontend
+```
+This will start the application in a Docker container and expose it on http://localhost:3000.
+
+Contributing
+We welcome contributions! Please follow these steps to contribute to the project:
+
+Fork the repository.
+Create a new branch for your feature/bugfix (git checkout -b feature-name).
+Commit your changes (git commit -m 'Add some feature').
+Push to the branch (git push origin feature-name).
+Open a pull request.
+Please ensure your code follows the project's coding standards and includes relevant tests.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for more details.
