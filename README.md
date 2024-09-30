@@ -56,7 +56,7 @@ Or, using yarn:
 ```bash
 yarn install
 ```
-Usage
+## Usage
 Running the Application Locally
 To start the development server, run the following command:
 
@@ -83,7 +83,7 @@ yarn build
 ```
 The production-ready code will be output to the build/ directory.
 
-Project Structure
+## Project Structure
 ```graphql
 ddoksik-frontend/
 │
@@ -120,7 +120,7 @@ ddoksik-frontend/
 ├── package.json                  # Project dependencies and scripts
 └── README.md                     # Project documentation
 ```
-Docker Setup
+## Docker Setup
 This project includes a Dockerfile for containerized deployment. Follow these steps to set up and run the project inside a Docker container:
 
 Build Docker Image
@@ -133,7 +133,7 @@ docker run -p 3000:3000 ddoksik-frontend
 ```
 This will start the application in a Docker container and expose it on http://localhost:3000.
 
-Contributing
+## Contributing
 We welcome contributions! Please follow these steps to contribute to the project:
 
 Fork the repository.
